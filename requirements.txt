@@ -3,3 +3,5 @@ django-allauth
 mysqlclient==1.4.6
 numpy
 pillow
+gunicorn
+django-heroku
