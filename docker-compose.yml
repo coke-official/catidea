@@ -1,0 +1,28 @@
+version: '3'
+services:
+ web:
+   container_name: catidea
+   build: .
+   command: python3 manage.py runserver 0.0.0.0:8000
+   working_dir: /code
+   ports:
+     - 18000:8000
+   volumes:
+     - .:/code
+   depends_on:
+     - db
+ db:
+   container_name: catidea-db
+   image: mysql:5.7
+   restart: always
+   environment:
+     MYSQL_ROOT_PASSWORD: root
+     MYSQL_DATABASE: catidea-db
+     MYSQL_USER: catidea
+     MYSQL_PASSWORD: password
+     MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+     TZ: 'Asia/Tokyo'
+   volumes:
+     - ./mysql:/var/lib/mysql
+   ports:
+     - 33306:3306
