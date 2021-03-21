@@ -1,8 +1,9 @@
 Django>=2.2.4
 django-allauth
-mysqlclient==1.4.6
 numpy
 pillow
 gunicorn
 django-heroku
-django-toolbelt
+psycopg2
+dj-database-url
+whitenoise==3.0.0

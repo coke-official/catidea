@@ -12,17 +12,11 @@ services:
    depends_on:
      - db
  db:
-   container_name: catidea-db
-   image: mysql:5.7
-   restart: always
-   environment:
-     MYSQL_ROOT_PASSWORD: root
-     MYSQL_DATABASE: catidea-db
-     MYSQL_USER: catidea
-     MYSQL_PASSWORD: password
-     MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
-     TZ: 'Asia/Tokyo'
-   volumes:
-     - ./mysql:/var/lib/mysql
+   image: postgres
    ports:
-     - 33306:3306
+     - "5432"
+   environment:
+     - POSTGRES_DB:postgres
+     - POSTGRES_USER:postgres
+     - POSTGRES_PASSWORD:postgres
+   
